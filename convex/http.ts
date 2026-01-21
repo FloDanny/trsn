@@ -1,4 +1,4 @@
-import { httpAction } from "convex/server";
+import * as convexServer from "convex/server";
 
 type LeadPayload = {
   name: string;
@@ -8,6 +8,34 @@ type LeadPayload = {
   message: string;
   source: string;
 };
+
+type LeadInsert = {
+  name: string;
+  email: string;
+  company?: string;
+  role?: string;
+  message: string;
+  source: string;
+  createdAt: number;
+};
+
+type LeadDb = {
+  insert: (table: "leads", value: LeadInsert) => Promise<unknown>;
+};
+
+type HttpAction = (
+  handler: (ctx: { db: LeadDb }, request: Request) => Promise<Response>,
+) => (ctx: { db: LeadDb }, request: Request) => Promise<Response>;
+
+const { httpAction } = convexServer as {
+  httpAction?: HttpAction;
+};
+
+if (!httpAction) {
+  throw new Error(
+    "Convex httpAction is unavailable. Upgrade convex to a version that supports HTTP actions.",
+  );
+}
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
