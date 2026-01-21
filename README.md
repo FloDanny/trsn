@@ -50,6 +50,8 @@ public/         # static assets
 AGENTS.md        # governance + content rules
 ```
 
+This repository contains a single Next.js app at the repo root (no nested app).
+
 ## Governance
 
 This project is governed by `AGENTS.md`. If you are contributing content or pages, read it first.
