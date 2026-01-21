@@ -87,6 +87,7 @@ Banned language unless proven:
 - “Game-changing”
 - “Best in class”
 - “Cutting-edge”
+- "Guaranteed"
 
 ---
 
@@ -147,6 +148,7 @@ Agents should:
   - X
   - Talks
   - Client education
+  - Facebook Pages
 
 The website is the **source of truth**.  
 Social platforms are distribution layers.
@@ -215,6 +217,55 @@ propose the homepage section structure only.
 Do not modify files yet.
 Explain reasoning.
 
+## Branch Authority & Repo State
+
+IMPORTANT: Branch state is authoritative and must be respected exactly.
+
+### Canonical Rules
+- The active branch is determined by `git branch` locally.
+- If `staging` is checked out, it is a valid working branch.
+- `staging` is NOT a feature branch and does NOT require protection prompts.
+- Codex must not assume a "work branch" if `staging` is active.
+
+### Required Agent Behavior
+When starting any task, the agent MUST:
+
+1. Run:
+   - `git branch`
+   - `git status`
+   - `git rev-parse --abbrev-ref HEAD`
+
+2. Treat the returned branch as authoritative.
+3. If the branch is `staging`:
+   - Proceed with full write permissions.
+   - Do NOT request branch switching.
+   - Do NOT warn about “working on a feature branch”.
+
+### Cache / Desync Recovery (MANDATORY if mismatch detected)
+If Codex believes it is on a different branch than Git reports, it MUST:
+
+1. Fetch and resync:
+   - `git fetch origin --prune`
+2. Hard align branch metadata:
+   - `git checkout staging`
+   - `git pull origin staging`
+3. Re-check:
+   - `git branch`
+   - `git status`
+
+Only after alignment may work continue.
+
+### Permissions
+The agent is explicitly authorized to:
+- Fetch
+- Pull
+- Re-sync branch metadata
+- Repair detached HEAD states
+- Resolve stale index issues
+
+The agent is NOTSTRICTLY FORBIDDEN from:
+- Creating new branches unless explicitly instructed
+- Switching away from `staging` without instruction
 
 
 # Repository Guidelines
