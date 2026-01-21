@@ -1,4 +1,3 @@
-
 # AGENTS.md
 ## TRSN LLC — Agent Operating Contract (Next.js)
 
@@ -62,7 +61,7 @@ Agents operating in this repo **ARE ALLOWED TO**:
 - Improve clarity, structure, and authority of copy
 - Propose new routes and site sections
 - Generate diagrams, examples, and supporting visuals
-- Scaffold internal demos only when explicitly authorized (sandboxed)
+- Scaffold internal demos **only when explicitly authorized** (sandboxed)
 
 Agents **MUST NOT**:
 - Introduce breaking architectural changes without proposal
@@ -87,7 +86,7 @@ Banned language unless proven:
 - “Game-changing”
 - “Best in class”
 - “Cutting-edge”
-- "Guaranteed"
+- “Guaranteed”
 
 ---
 
@@ -95,10 +94,9 @@ Banned language unless proven:
 
 All content and demos should reinforce:
 
-🟥 Models = Capability (replaceable)
-🟩 Agents = Orchestration + Rules
-🟨 Skills = Business Value
-
+🟥 Models = Capability (replaceable)  
+🟩 Agents = Orchestration + Rules  
+🟨 Skills = Business Value  
 
 Agents should:
 - Emphasize **system design over prompt cleverness**
@@ -206,95 +204,90 @@ Agents should:
 If no suitable skill exists:
 > Propose a new skill before proceeding.
 
-Before acting:
-- Load AGENTS.md
-- Identify relevant skills
-- Confirm current branch
+---
 
-Task:
-Using the "Site Authority Content" skill,
-propose the homepage section structure only.
-Do not modify files yet.
-Explain reasoning.
+## 14. Branch Authority & Repo State
 
-## Branch Authority & Repo State
+Branch discipline exists to protect stability, **not to restrict visibility**.
 
-IMPORTANT: Branch state is authoritative and must be respected exactly.
+### Canonical Intent
+- `main` represents stable, public-facing state
+- `staging` is the active working branch for agent changes
+- Other branches may exist for history or inspection
 
-### Canonical Rules
-- The active branch is determined by `git branch` locally.
-- If `staging` is checked out, it is a valid working branch.
-- `staging` is NOT a feature branch and does NOT require protection prompts.
-- Codex must not assume a "work branch" if `staging` is active.
+### Read vs Write Authority
 
-### Required Agent Behavior
-When starting any task, the agent MUST:
+Agents are explicitly authorized to:
 
-1. Run:
-   - `git branch`
-   - `git status`
-   - `git rev-parse --abbrev-ref HEAD`
+**READ / INSPECT**
+- Fetch all branches
+- Switch between branches for inspection or comparison
+- View files, diffs, and history on any branch
 
-2. Treat the returned branch as authoritative.
-3. If the branch is `staging`:
-   - Proceed with full write permissions.
-   - Do NOT request branch switching.
-   - Do NOT warn about “working on a feature branch”.
+**WRITE / MODIFY**
+- Make changes freely on `staging`
+- Commit changes on `staging`
 
-### Cache / Desync Recovery (MANDATORY if mismatch detected)
-If Codex believes it is on a different branch than Git reports, it MUST:
+Agents are **NOT authorized** to:
+- Commit directly to `main`
+- Modify `main` unless explicitly instructed
+- Delete branches without instruction
 
-1. Fetch and resync:
-   - `git fetch origin --prune`
-2. Hard align branch metadata:
-   - `git checkout staging`
-   - `git pull origin staging`
-3. Re-check:
-   - `git branch`
-   - `git status`
+### Default Behavior
 
-Only after alignment may work continue.
+- Agents may inspect any branch at any time
+- Agents must ensure they are on `staging` **before writing**
+- If not on `staging`, the agent should switch to it prior to modification
 
-### Permissions
-The agent is explicitly authorized to:
-- Fetch
-- Pull
-- Re-sync branch metadata
-- Repair detached HEAD states
-- Resolve stale index issues
+### Desync Recovery (When Needed)
 
-The agent is NOTSTRICTLY FORBIDDEN from:
-- Creating new branches unless explicitly instructed
-- Switching away from `staging` without instruction
+If a mismatch is detected between expected and actual branch state, the agent MAY:
+- Fetch from origin
+- Re-check out `staging`
+- Pull latest `staging`
 
+This is a recovery mechanism, **not a mandatory ritual**.
+
+### Guiding Rule
+
+> **Branch safety is about where you write, not where you look.**
+
+Inspection is always allowed.  
+Modification is controlled.
+
+---
 
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `app/` holds the Next.js App Router pages and layouts (e.g., `app/page.tsx`, `app/layout.tsx`).
-- `app/globals.css` contains global styles and Tailwind layers.
-- `public/` contains static assets (SVGs, favicon).
-- Root config includes `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, and `postcss.config.mjs`.
+- `app/` holds the Next.js App Router pages and layouts
+- `app/globals.css` contains global styles and Tailwind layers
+- `public/` contains static assets
+- Root config includes `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, and `postcss.config.mjs`
 
 ## Build, Test, and Development Commands
-- `npm run dev` starts the local Next.js dev server.
-- `npm run build` creates the production build.
-- `npm run start` serves the production build locally.
-- `npm run lint` runs ESLint with the Next.js config.
+- `npm run dev` starts the local dev server
+- `npm run build` creates the production build
+- `npm run start` serves the production build
+- `npm run lint` runs ESLint
 
 ## Coding Style & Naming Conventions
-- TypeScript + React with the App Router; keep components in `app/`.
-- Indentation is 2 spaces; use double quotes and semicolons (match existing files).
-- Tailwind CSS is used for styling; prefer utility classes over bespoke CSS.
+- TypeScript + React with App Router
+- 2-space indentation
+- Double quotes and semicolons
+- Tailwind preferred over bespoke CSS
 
 ## Testing Guidelines
-- No automated test framework is configured yet.
-- If you add tests, introduce a script in `package.json` and document how to run it here.
+- No test framework is configured yet
+- Introduce Playwright and Vitest intentionally
+- Document test usage when added
 
 ## Commit & Pull Request Guidelines
-- Commit messages are short and descriptive (see `git log`: "Update readme", "Initial commit").
-- PRs should include a clear summary, linked issues when applicable, and screenshots for UI changes.
+- Small, descriptive commits
+- Clear summaries
+- Screenshots for UI changes where applicable
 
 ## Agent-Specific Instructions
-- Follow the governance and content rules in `AGENTS.md` before making changes.
-- Avoid unapproved dependencies or architecture shifts; propose changes first if uncertain.
+- Follow AGENTS.md before acting
+- Avoid unapproved dependencies or architecture shifts
+- Propose changes when uncertain
