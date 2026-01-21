@@ -62,7 +62,7 @@ Agents operating in this repo **ARE ALLOWED TO**:
 - Improve clarity, structure, and authority of copy
 - Propose new routes and site sections
 - Generate diagrams, examples, and supporting visuals
-- Scaffold internal demos (sandboxed only)
+- Scaffold internal demos only when explicitly authorized (sandboxed)
 
 Agents **MUST NOT**:
 - Introduce breaking architectural changes without proposal
@@ -184,6 +184,37 @@ Those belong elsewhere.
 > Quality is not optional.
 
 This site should **prove** that.
+
+---
+
+## 13. Skills System (Codex-Native)
+
+This project uses Codex-native **skills** located in the `/skills` directory.
+
+Skills are:
+- Modular, reusable agent capabilities
+- Scoped behaviors, not free-form prompts
+- Invoked intentionally based on task context
+
+Agents should:
+- Identify relevant skills before acting
+- Follow skill-specific constraints in addition to this file
+- Prefer composing existing skills over inventing new behavior
+
+If no suitable skill exists:
+> Propose a new skill before proceeding.
+
+Before acting:
+- Load AGENTS.md
+- Identify relevant skills
+- Confirm current branch
+
+Task:
+Using the "Site Authority Content" skill,
+propose the homepage section structure only.
+Do not modify files yet.
+Explain reasoning.
+
 
 
 # Repository Guidelines
