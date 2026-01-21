@@ -1,4 +1,16 @@
-import { httpAction } from "convex/server";
+import * as convexServer from "convex/server";
+
+const { httpAction } = convexServer as {
+  httpAction?: (
+    handler: (ctx: { db: unknown }, request: Request) => Promise<Response>,
+  ) => (ctx: { db: unknown }, request: Request) => Promise<Response>;
+};
+
+if (!httpAction) {
+  throw new Error(
+    "Convex httpAction is unavailable. Upgrade convex to a version that supports HTTP actions.",
+  );
+}
 
 type LeadPayload = {
   name: string;
