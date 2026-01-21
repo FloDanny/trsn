@@ -5,7 +5,7 @@ Core goals:
 - Demonstrate QAAS (Quality Assurance as a Service) and MASS (Models -> Agents -> Skills).
 - Serve as a live, inspectable demo of agent-governed systems.
 
-See `AGENT.md` for the operating contract and content rules.
+See `AGENTS.md` for the operating contract and content rules.
 
 ## Getting Started
 
@@ -47,12 +47,12 @@ npm run lint    # eslint
 ```text
 app/            # app router pages, layout, globals
 public/         # static assets
-AGENT.md        # governance + content rules
+AGENTS.md        # governance + content rules
 ```
 
 ## Governance
 
-This project is governed by `AGENT.md`. If you are contributing content or pages, read it first.
+This project is governed by `AGENTS.md`. If you are contributing content or pages, read it first.
 
 ## Learn More
 
