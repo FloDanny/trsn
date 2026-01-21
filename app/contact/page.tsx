@@ -1,3 +1,5 @@
+import ContactForm from "./ContactForm";
+
 const intakeItems = [
   "Current system architecture and release cadence.",
   "Highest-risk workflows and known failure modes.",
@@ -39,10 +41,7 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-sm text-zinc-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
-            Placeholder: Add your preferred contact method (email or form) when
-            ready to enable inbound.
-          </div>
+          <ContactForm />
         </div>
       </section>
     </div>
