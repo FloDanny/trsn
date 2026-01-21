@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This repository powers **TRSNLLC.com**, the public authority site for **TRSN LLC**. It is a Next.js app (App Router) with Tailwind CSS and a small, intentional surface area.
+
+Core goals:
+- Educate technical leaders and QA orgs.
+- Demonstrate QAAS (Quality Assurance as a Service) and MASS (Models -> Agents -> Skills).
+- Serve as a live, inspectable demo of agent-governed systems.
+
+See `AGENTS.md` for the operating contract and content rules.
 
 ## Getting Started
 
@@ -18,7 +25,34 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
+
+- Next.js (App Router)
+- React 19
+- Tailwind CSS v4 (via `@tailwindcss/postcss`)
+- TypeScript
+- React Compiler enabled in `next.config.ts`
+
+## Scripts
+
+```bash
+npm run dev     # start local dev server
+npm run build   # production build
+npm run start   # run production server
+npm run lint    # eslint
+```
+
+## Project Structure
+
+```text
+app/            # app router pages, layout, globals
+public/         # static assets
+AGENTS.md        # governance + content rules
+```
+
+## Governance
+
+This project is governed by `AGENTS.md`. If you are contributing content or pages, read it first.
 
 ## Learn More
 
