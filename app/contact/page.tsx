@@ -18,7 +18,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             If you want a QA system that can withstand production pressure,
-            share the context below. We will respond with a scoped plan, not a
+            email your context and we will respond with a scoped plan, not a
             pitch.
           </p>
         </div>
@@ -39,12 +39,10 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-sm text-zinc-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
-            Placeholder: Add your preferred contact method (email or form) when
-            ready to enable inbound.
-          </div>
+          <ContactForm />
         </div>
       </section>
     </div>
   );
 }
+import ContactForm from "./ContactForm";

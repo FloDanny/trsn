@@ -19,7 +19,7 @@ const tooling = [
 
 const principles = [
   "Verify: Did we build it right?",
-  "Validate: Did we build the right thing?",
+  "Validate: Did we prove the right thing?",
   "Risk-based prioritization over coverage vanity.",
   "No silent failures. All errors are surfaced, logged, or blocked.",
 ];

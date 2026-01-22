@@ -8,7 +8,7 @@ const companyFocus = [
 
 const founderTimeline = [
   "2010: Started the live streaming company TRW.",
-  "2014: Sold the intellectual property to FloSports.tc.",
+  "2014: Sold the intellectual property to FloSports Inc.",
   "2014+: Consultant for FloSports; started their QA and automation department.",
 ];
 
