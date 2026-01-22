@@ -85,7 +85,7 @@ const allowedStatuses = new Set(["new", "reviewed", "qualified", "archived"]);
 const allowedSourcePages = new Set(["homepage", "contact", "proof"]);
 const allowedEventTypes = new Set(["page_view", "cta_click"]);
 
-const adminSharedSecret = process.env.CONVEX_ADMIN_SHARED_SECRET;
+const adminToken = process.env.CONVEX_ADMIN_TOKEN;
 
 const validateLeadPayload = (payload: LeadPayload) => {
   if (!payload.name?.trim()) {
@@ -125,79 +125,13 @@ const validateEngagementPayload = (payload: EngagementPayload) => {
   return null;
 };
 
-const base64UrlToBytes = (input: string) => {
-  const padded = input.replace(/-/g, "+").replace(/_/g, "/");
-  const padLength = (4 - (padded.length % 4)) % 4;
-  const normalized = padded + "=".repeat(padLength);
-  const binary = atob(normalized);
-  const bytes = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i += 1) {
-    bytes[i] = binary.charCodeAt(i);
-  }
-  return bytes;
-};
-
-const verifyAdminToken = async (token: string) => {
-  if (!adminSharedSecret) {
-    return false;
+const assertAdmin = (request: Request) => {
+  if (!adminToken) {
+    return new Response("Admin token not configured.", { status: 500 });
   }
 
-  const [payloadEncoded, signature] = token.split(".");
-  if (!payloadEncoded || !signature) {
-    return false;
-  }
-
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(adminSharedSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["verify"],
-  );
-
-  const isValid = await crypto.subtle.verify(
-    "HMAC",
-    key,
-    base64UrlToBytes(signature),
-    new TextEncoder().encode(payloadEncoded),
-  );
-
-  if (!isValid) {
-    return false;
-  }
-
-  const payload = new TextDecoder().decode(base64UrlToBytes(payloadEncoded));
-  const [userId, issuedAt] = payload.split(":");
-  if (!userId || !issuedAt) {
-    return false;
-  }
-
-  const issuedAtSeconds = Number(issuedAt);
-  if (!Number.isFinite(issuedAtSeconds)) {
-    return false;
-  }
-
-  const nowSeconds = Math.floor(Date.now() / 1000);
-  const maxAgeSeconds = 60 * 5;
-  if (nowSeconds - issuedAtSeconds > maxAgeSeconds) {
-    return false;
-  }
-
-  return true;
-};
-
-const assertAdmin = async (request: Request) => {
-  if (!adminSharedSecret) {
-    return new Response("Admin auth not configured.", { status: 500 });
-  }
-
-  const token = request.headers.get("x-admin-auth");
-  if (!token) {
-    return new Response("Unauthorized.", { status: 401 });
-  }
-
-  const isValid = await verifyAdminToken(token);
-  if (!isValid) {
+  const token = request.headers.get("x-admin-token");
+  if (!token || token !== adminToken) {
     return new Response("Unauthorized.", { status: 401 });
   }
 
@@ -299,7 +233,7 @@ export const authorityEvent = httpAction(async (ctx, request) => {
 });
 
 export const adminEngagements = httpAction(async (ctx, request) => {
-  const authError = await assertAdmin(request);
+  const authError = assertAdmin(request);
   if (authError) {
     return authError;
   }

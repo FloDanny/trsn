@@ -8,7 +8,6 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { auth, clerkClient } from "@clerk/nextjs/server";
-import { createAdminToken } from "@/lib/adminToken";
 import type { EngagementSubmission } from "@/lib/convexAdmin";
 import {
   listEngagementSubmissions,
@@ -54,12 +53,11 @@ async function updateSubmissionAction(formData: FormData) {
     throw new Error("Unauthorized.");
   }
 
-  const { token } = createAdminToken(userId);
   const id = String(formData.get("id") ?? "");
   const status = String(formData.get("status") ?? "");
   const internalNotes = String(formData.get("internalNotes") ?? "");
 
-  await updateEngagementSubmission(token, {
+  await updateEngagementSubmission({
     id,
     status,
     internalNotes,
@@ -166,8 +164,7 @@ export default async function AdminPage({
   let loadError: string | null = null;
 
   try {
-    const { token } = createAdminToken(userId);
-    submissions = await listEngagementSubmissions(token);
+    submissions = await listEngagementSubmissions();
   } catch (error) {
     console.error("Admin list failed.", error);
     loadError = "Failed to load submissions.";

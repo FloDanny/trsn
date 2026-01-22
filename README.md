@@ -54,7 +54,7 @@ admin token signed with a shared secret.
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 CLERK_SECRET_KEY=YOUR_SECRET_KEY
 ADMIN_EMAIL=admin@trsnllc.com
-CONVEX_ADMIN_SHARED_SECRET=YOUR_CONVEX_ADMIN_SHARED_SECRET
+CONVEX_ADMIN_TOKEN=YOUR_CONVEX_ADMIN_TOKEN
 NEXT_PUBLIC_CONVEX_URL=YOUR_CONVEX_URL
 CONVEX_URL=YOUR_CONVEX_URL
 CONVEX_DEPLOY_KEY=YOUR_CONVEX_DEPLOY_KEY
@@ -64,8 +64,8 @@ CONVEX_DEPLOY_KEY=YOUR_CONVEX_DEPLOY_KEY
 
 - Clerk handles authentication and redirects to `/admin`.
 - `/admin` checks the authenticated user's email against `ADMIN_EMAIL`.
-- Admin requests to Convex use a short-lived signed token validated by
-  `CONVEX_ADMIN_SHARED_SECRET`.
+- Admin requests to Convex include a static admin token validated by
+  `CONVEX_ADMIN_TOKEN`.
 
 ## Project Structure
 

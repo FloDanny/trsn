@@ -22,8 +22,13 @@ const getAdminEndpoint = () => {
   );
 };
 
-export const listEngagementSubmissions = async (adminToken: string) => {
+const getAdminToken = () => {
+  return process.env.CONVEX_ADMIN_TOKEN;
+};
+
+export const listEngagementSubmissions = async () => {
   const endpoint = getAdminEndpoint();
+  const adminToken = getAdminToken();
 
   if (!endpoint || !adminToken) {
     throw new Error("Convex admin endpoint is not configured.");
@@ -32,7 +37,7 @@ export const listEngagementSubmissions = async (adminToken: string) => {
   const response = await fetch(endpoint, {
     method: "GET",
     headers: {
-      "X-Admin-Auth": adminToken,
+      "X-Admin-Token": adminToken,
     },
     cache: "no-store",
   });
@@ -48,15 +53,13 @@ export const listEngagementSubmissions = async (adminToken: string) => {
   return payload.submissions ?? [];
 };
 
-export const updateEngagementSubmission = async (
-  adminToken: string,
-  input: {
+export const updateEngagementSubmission = async (input: {
   id: string;
   status?: string;
   internalNotes?: string;
-  },
-) => {
+}) => {
   const endpoint = getAdminEndpoint();
+  const adminToken = getAdminToken();
 
   if (!endpoint || !adminToken) {
     throw new Error("Convex admin endpoint is not configured.");
@@ -65,7 +68,7 @@ export const updateEngagementSubmission = async (
   const response = await fetch(endpoint, {
     method: "PATCH",
     headers: {
-      "X-Admin-Auth": adminToken,
+      "X-Admin-Token": adminToken,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(input),
