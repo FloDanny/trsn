@@ -49,6 +49,13 @@ Playwright (UI):
 npm run test:playwright
 ```
 
+Run a specific Playwright suite:
+
+```bash
+npx playwright test --project=e2e
+npx playwright test --project=regression
+```
+
 k6 (performance smoke):
 
 ```bash

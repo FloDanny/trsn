@@ -70,7 +70,10 @@ export default function AboutPage() {
           </p>
           <ul className="grid gap-3 text-sm text-zinc-700 dark:text-zinc-200">
             {founderTimeline.map((item) => (
-              <li key={item} className="rounded-xl border border-zinc-200/70 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+              <li
+                key={item}
+                className="rounded-xl border border-zinc-200/70 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950"
+              >
                 {item}
               </li>
             ))}
@@ -102,9 +105,9 @@ export default function AboutPage() {
             Operating principles
           </h2>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
-            Systems beat prompts. Governance beats vibes. Quality is not optional.
-            Every system should withstand change, explain its failures, and
-            recover quickly.
+            Systems beat prompts. Governance beats vibes. Quality is not
+            optional. Every system should withstand change, explain its
+            failures, and recover quickly.
           </p>
         </div>
       </section>

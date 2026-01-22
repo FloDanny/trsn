@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "format": "prettier --write .",
     "test:vitest": "vitest run --coverage",
     "test:jest": "mkdir -p reports/jest && jest",
     "test:playwright": "playwright test",
     "test:playwright:report": "npx playwright show-report reports/playwright",
-    "test:k6": "mkdir -p reports/k6 && k6 run --summary-export=reports/k6/summary.json tests/k6/smoke.js && node tests/k6/report.js"
+    "test:k6": "mkdir -p reports/k6 && k6 run --summary-export=reports/k6/summary.json tests/k6/smoke.js && node tests/k6/report.cjs"
   },
   "dependencies": {
     "next": "16.1.4",
@@ -36,6 +37,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporter": "^4.3.0",
     "jsdom": "^25.0.1",
+    "prettier": "^3.2.5",
     "tailwindcss": "^4",
     "ts-jest": "^29.2.5",
     "typescript": "^5",

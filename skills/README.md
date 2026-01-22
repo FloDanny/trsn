@@ -3,6 +3,7 @@
 This directory contains Codex-native skills used by agents operating in this repository.
 
 Each skill defines:
+
 - When it should be used
 - What authority it has
 - What constraints apply

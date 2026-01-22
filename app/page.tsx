@@ -95,14 +95,17 @@ export default function Home() {
               Outcomes you can defend in a production review.
             </h2>
             <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-              The goal is corporate confidence in code deploys. That means risk is
-              modeled, verification is automated, and validation is aligned to
-              real user impact.
+              The goal is corporate confidence in code deploys. That means risk
+              is modeled, verification is automated, and validation is aligned
+              to real user impact.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {outcomes.map((outcome) => (
-              <div key={outcome.title} className="rounded-2xl bg-white p-6 shadow-sm dark:bg-black">
+              <div
+                key={outcome.title}
+                className="rounded-2xl bg-white p-6 shadow-sm dark:bg-black"
+              >
                 <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
                   {outcome.title}
                 </h3>

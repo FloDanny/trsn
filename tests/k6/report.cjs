@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
 const summaryPath = process.argv[2] || "reports/k6/summary.json";
 const outputPath = process.argv[3] || "reports/k6/report.html";
@@ -55,7 +55,7 @@ const html = `<!doctype html>
         </div>
         <div class="card">
           <h2>Checks Passed</h2>
-          <div class="value">${((checks.passes || 0) / Math.max(checks.passes || 0, checks.fails || 0) * 100 || 0).toFixed(2)}%</div>
+          <div class="value">${(((checks.passes || 0) / Math.max(checks.passes || 0, checks.fails || 0)) * 100 || 0).toFixed(2)}%</div>
           <div class="meta">${checks.passes || 0} pass / ${checks.fails || 0} fail</div>
         </div>
       </section>

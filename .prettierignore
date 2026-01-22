@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+reports
+coverage
+test-results
+package-lock.json
+qa-test-tooling.skill
