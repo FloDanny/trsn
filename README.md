@@ -1,6 +1,7 @@
 This repository powers **TRSNLLC.com**, the public authority site for **TRSN LLC**. It is a Next.js app (App Router) with Tailwind CSS and a small, intentional surface area.
 
 Core goals:
+
 - Educate technical leaders and QA orgs.
 - Demonstrate QAAS (Quality Assurance as a Service) and MASS (Models -> Agents -> Skills).
 - Serve as a live, inspectable demo of agent-governed systems.
@@ -40,7 +41,26 @@ npm run dev     # start local dev server
 npm run build   # production build
 npm run start   # run production server
 npm run lint    # eslint
+npm run format  # prettier formatting
+npm run test:vitest      # vitest + coverage report
+npm run test:jest        # jest + html report + coverage
+npm run test:playwright  # playwright ui automation + html report
+npm run test:k6          # k6 smoke test + html report
 ```
+
+## Testing
+
+See `TESTING.md` for setup, reporting locations, and tool-specific notes.
+
+## Report Samples
+
+These are captured outputs from the test suites so clients can see real reporting artifacts.
+
+![Vitest Coverage Summary](public/report-screenshots/vitest.png)
+![Jest HTML Report](public/report-screenshots/jest.png)
+![Playwright HTML Report](public/report-screenshots/playwright.png)
+![k6 Performance Report](public/report-screenshots/k6.png)
+![k6 Web Dashboard](public/report-screenshots/k6-dashboard.png)
 
 ## Project Structure
 
