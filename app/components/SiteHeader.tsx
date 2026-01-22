@@ -4,6 +4,7 @@ const navItems = [
   { href: "/qaas", label: "QAAS™" },
   { href: "/mass", label: "MASS Framework" },
   { href: "/testing-tooling", label: "Testing & Tooling" },
+  { href: "/demo", label: "Demo" },
   { href: "/ai-governance", label: "AI Agents & Governance" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

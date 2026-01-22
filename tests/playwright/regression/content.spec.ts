@@ -22,6 +22,12 @@ const pages = [
     mustContain: "testing stack should reflect risk, not preference",
   },
   {
+    path: "/demo",
+    heading: "Inspect the QA system, not a slide deck.",
+    mustContain: "Open the public repo",
+    mustContainRole: "link",
+  },
+  {
     path: "/ai-governance",
     heading: "Governance beats clever prompts.",
     mustContain: "Agents are only useful when their behavior is bounded",

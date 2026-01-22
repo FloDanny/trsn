@@ -35,6 +35,8 @@ const outcomes = [
   },
 ];
 
+const repoUrl = "https://github.com/FloDanny/trsn";
+
 export default function Home() {
   return (
     <div className="bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
@@ -48,9 +50,9 @@ export default function Home() {
               QA systems designed for production reality.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
-              I build and govern quality systems that make release risk visible,
-              enforceable, and repeatable. QA is not a gate. QA is the operating
-              model.
+              TRSN LLC builds and governs quality systems that make release risk
+              visible, enforceable, and repeatable. QA is not a gate. QA is the
+              operating model.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -114,6 +116,36 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold text-zinc-900 dark:text-white">
+              Inspect the system demo.
+            </h2>
+            <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
+              Review the public repo, test suites, and evidence artifacts that
+              show how we build QA systems for production-scale teams.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
+              href="/demo"
+            >
+              Explore the demo
+            </Link>
+            <a
+              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
+              href={repoUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open the repo
+            </a>
           </div>
         </div>
       </section>

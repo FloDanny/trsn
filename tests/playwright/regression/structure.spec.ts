@@ -7,13 +7,14 @@ test("header navigation shows all primary links (regression)", async ({
 
   const nav = page.locator("header nav");
   const navLinks = nav.locator("a");
-  await expect(navLinks).toHaveCount(6);
+  await expect(navLinks).toHaveCount(7);
 
   await expect(nav.getByRole("link", { name: "QAAS™" })).toBeVisible();
   await expect(nav.getByRole("link", { name: "MASS Framework" })).toBeVisible();
   await expect(
     nav.getByRole("link", { name: "Testing & Tooling" })
   ).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Demo" })).toBeVisible();
   await expect(
     nav.getByRole("link", { name: "AI Agents & Governance" })
   ).toBeVisible();

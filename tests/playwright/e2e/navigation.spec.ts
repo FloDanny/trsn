@@ -17,6 +17,11 @@ const navigationItems = [
     heading: "V² trademark philosophy: Verify, then Validate.",
   },
   {
+    label: "Demo",
+    href: "/demo",
+    heading: "Inspect the QA system, not a slide deck.",
+  },
+  {
     label: "AI Agents & Governance",
     href: "/ai-governance",
     heading: "Governance beats clever prompts.",
