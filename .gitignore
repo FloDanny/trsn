@@ -12,6 +12,7 @@
 
 # testing
 /reports/jest/coverage
+/reports/vitest/coverage
 /test-results
 
 # next.js
@@ -20,6 +21,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store

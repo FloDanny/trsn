@@ -52,6 +52,16 @@ npm run test:k6          # k6 smoke test + html report
 
 See `TESTING.md` for setup, reporting locations, and tool-specific notes.
 
+## Report Samples
+
+These are captured outputs from the test suites so clients can see real reporting artifacts.
+
+![Vitest Coverage Summary](public/report-screenshots/vitest.png)
+![Jest HTML Report](public/report-screenshots/jest.png)
+![Playwright HTML Report](public/report-screenshots/playwright.png)
+![k6 Performance Report](public/report-screenshots/k6.png)
+![k6 Web Dashboard](public/report-screenshots/k6-dashboard.png)
+
 ## Project Structure
 
 ```text

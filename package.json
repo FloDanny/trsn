@@ -8,11 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "test:vitest": "vitest run --coverage",
+    "test:vitest": "mkdir -p reports/vitest && vitest run --coverage && node tests/vitest/report.cjs",
     "test:jest": "mkdir -p reports/jest && jest",
     "test:playwright": "playwright test",
     "test:playwright:report": "npx playwright show-report reports/playwright",
-    "test:k6": "mkdir -p reports/k6 && k6 run --summary-export=reports/k6/summary.json tests/k6/smoke.js && node tests/k6/report.cjs"
+    "test:playwright:screenshot": "npx playwright screenshot --full-page file://$PWD/reports/playwright/index.html public/report-screenshots/playwright.png",
+    "test:k6": "mkdir -p reports/k6 && K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=reports/k6/web-dashboard.html k6 run --summary-export=reports/k6/summary.json tests/k6/smoke.js && node tests/k6/report.cjs"
   },
   "dependencies": {
     "next": "16.1.4",

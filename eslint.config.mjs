@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     "reports/**",
     "test-results/**",
     "tests/k6/**",
+    "tests/vitest/report.cjs",
   ]),
 ]);
 

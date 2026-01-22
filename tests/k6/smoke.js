@@ -3,7 +3,14 @@ import { check, sleep } from "k6";
 
 export const options = {
   vus: 1,
-  duration: "5s",
+  duration: "30s",
+  thresholds: {
+    // Assertions: treat checks as test expectations.
+    checks: ["rate==1.0"],
+    // Allow the intentional 404 to count as a failure while keeping the test meaningful.
+    http_req_failed: ["rate<0.6"],
+    http_req_duration: ["p(95)<500"],
+  },
 };
 
 export default function smokeTest() {
