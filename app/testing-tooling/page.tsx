@@ -33,7 +33,7 @@ export default function TestingToolingPage() {
             Testing & Tooling
           </p>
           <h1 className="text-3xl font-semibold text-zinc-900 dark:text-white md:text-4xl">
-            V²: Verify, then Validate.
+            V² trademark philosophy: Verify, then Validate.
           </h1>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             If a system cannot be tested reasonably, the design is wrong. The
