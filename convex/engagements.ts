@@ -1,4 +1,4 @@
-import * as convexServer from "convex/server";
+import { mutation, query } from "convex/server";
 import { v } from "convex/values";
 
 type EngagementInsert = {
@@ -12,33 +12,6 @@ type EngagementInsert = {
   internalNotes?: string;
   lastReviewedAt?: number;
 };
-
-type EngagementDb = {
-  insert: (table: "engagementSubmissions", value: EngagementInsert) => Promise<unknown>;
-  patch: (id: string, value: Partial<EngagementInsert>) => Promise<unknown>;
-  query: (table: "engagementSubmissions") => { collect: () => Promise<EngagementInsert[]> };
-};
-
-type Mutation = (config: {
-  args: Record<string, unknown>;
-  handler: (ctx: { db: EngagementDb }, args: Record<string, unknown>) => Promise<{ ok: true }>;
-}) => unknown;
-
-type Query = (config: {
-  args: Record<string, unknown>;
-  handler: (ctx: { db: EngagementDb }, args: Record<string, unknown>) => Promise<{ submissions: EngagementInsert[] }>;
-}) => unknown;
-
-const { mutation, query } = convexServer as {
-  mutation?: Mutation;
-  query?: Query;
-};
-
-if (!mutation || !query) {
-  throw new Error(
-    "Convex mutation/query is unavailable. Upgrade convex to a version that supports them.",
-  );
-}
 
 const allowedStatuses = new Set(["new", "reviewed", "qualified", "archived"]);
 

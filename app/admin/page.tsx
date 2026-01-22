@@ -68,6 +68,7 @@ async function updateSubmissionAction(formData: FormData) {
 }
 
 export default async function AdminPage({
+  searchParams,
 }: {
   searchParams?: { error?: string };
 }) {
