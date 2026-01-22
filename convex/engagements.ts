@@ -13,20 +13,7 @@ type EngagementInsert = {
   lastReviewedAt?: number;
 };
 
-const { mutation, query } = convexServer as unknown as {
-  mutation: (config: {
-    args: Record<string, unknown>;
-    handler: (ctx: { db: EngagementDb }, args: Record<string, unknown>) => Promise<{
-      ok: true;
-    }>;
-  }) => unknown;
-  query: (config: {
-    args: Record<string, unknown>;
-    handler: (ctx: { db: EngagementDb }, args: Record<string, unknown>) => Promise<{
-      submissions: EngagementInsert[];
-    }>;
-  }) => unknown;
-};
+const { mutation, query } = convexServer as any;
 
 const allowedStatuses = new Set(["new", "reviewed", "qualified", "archived"]);
 
