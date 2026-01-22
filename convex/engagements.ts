@@ -1,4 +1,4 @@
-import { mutation, query } from "convex/server";
+import * as convexServer from "convex/server";
 import { v } from "convex/values";
 
 type EngagementInsert = {
@@ -11,6 +11,11 @@ type EngagementInsert = {
   status: string;
   internalNotes?: string;
   lastReviewedAt?: number;
+};
+
+const { mutation, query } = convexServer as {
+  mutation: typeof convexServer.mutation;
+  query: typeof convexServer.query;
 };
 
 const allowedStatuses = new Set(["new", "reviewed", "qualified", "archived"]);
