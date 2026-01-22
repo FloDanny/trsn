@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "QAAS Model | TRSN LLC",
+  description:
+    "Quality Assurance as a Service (QAAS) as a delivery system: governed, risk-based, and observable.",
+};
+
 const qaasPrinciples = [
   {
     title: "Automation-first",
@@ -12,7 +20,7 @@ const qaasPrinciples = [
   {
     title: "Risk-based enforcement",
     detail:
-      "Test effort maps to failure impact. We prioritize containment over vanity coverage.",
+      "Test effort maps to failure impact. Containment is prioritized over vanity coverage.",
   },
   {
     title: "Observable and auditable",

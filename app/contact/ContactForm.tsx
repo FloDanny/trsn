@@ -2,14 +2,17 @@
 
 import type { ChangeEvent, FormEvent } from "react";
 import { useMemo, useState } from "react";
+import { getConvexActionUrl } from "@/lib/convexUrls";
 
-const submitUrl = process.env.NEXT_PUBLIC_CONVEX_HTTP_URL;
+const submitUrl = getConvexActionUrl(
+  process.env.NEXT_PUBLIC_CONVEX_URL,
+  "engagementIntake",
+);
 
 const initialFormState = {
   name: "",
   email: "",
   company: "",
-  role: "",
   message: "",
 };
 
@@ -99,9 +102,8 @@ function ContactFormFields() {
           name: formState.name.trim(),
           email: formState.email.trim(),
           company: formState.company.trim() || undefined,
-          role: formState.role.trim() || undefined,
           message: formState.message.trim(),
-          source: "contact-page",
+          sourcePage: "contact",
         }),
       });
 
@@ -139,8 +141,8 @@ function ContactFormFields() {
 
         {isSuccess ? (
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-200">
-            Submitted. We will reply with a scoped plan within two business
-            days.
+            Submitted. TRSN LLC will reply with a scoped plan within two
+            business days.
           </div>
         ) : null}
 
@@ -193,16 +195,6 @@ function ContactFormFields() {
               value={formState.company}
             />
           </label>
-          <label className="flex flex-col gap-2 text-sm text-zinc-700 dark:text-zinc-200">
-            Role
-            <input
-              className="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 dark:border-zinc-700 dark:bg-black dark:text-zinc-100"
-              name="role"
-              onChange={handleChange}
-              placeholder="CTO, QA Lead, Engineering Manager"
-              value={formState.role}
-            />
-          </label>
         </div>
 
         <label className="flex flex-col gap-2 text-sm text-zinc-700 dark:text-zinc-200">
@@ -226,7 +218,7 @@ function ContactFormFields() {
             {isSubmitting ? "Submitting..." : "Submit context"}
           </button>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
-            We only use this to scope a QAAS™ engagement.
+            TRSN LLC only uses this to scope a QAAS™ engagement.
           </p>
         </div>
       </div>
@@ -239,7 +231,7 @@ export default function ContactForm() {
     return (
       <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-sm text-zinc-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
         Lead capture is offline because the Convex HTTP endpoint is not
-        configured. Set NEXT_PUBLIC_CONVEX_HTTP_URL to enable submissions.
+        configured. Set NEXT_PUBLIC_CONVEX_URL to enable submissions.
       </div>
     );
   }

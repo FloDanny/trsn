@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI Governance | TRSN LLC",
+  description:
+    "Agent governance for production systems: contracts, skills, reproducible output, and accountable ownership.",
+};
+
 const governanceElements = [
   {
     title: "AGENTS.md contracts",

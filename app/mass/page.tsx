@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MASS Framework | TRSN LLC",
+  description:
+    "Models, Agents, Skills: a system-first framework for AI governance and QA outcomes.",
+};
+
 const massLayers = [
   {
     title: "Models = processors",

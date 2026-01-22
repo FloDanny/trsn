@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Testing & Tooling | TRSN LLC",
+  description:
+    "Verification and validation aligned to risk, not preference. QA built for production pressure.",
+};
+
 const tooling = [
   {
     title: "Playwright",
@@ -18,8 +26,8 @@ const tooling = [
 ];
 
 const principles = [
-  "Verify: Did we build it right?",
-  "Validate: Did we build the right thing?",
+  "Verify: Was it built right?",
+  "Validate: Was the right thing built?",
   "Risk-based prioritization over coverage vanity.",
   "No silent failures. All errors are surfaced, logged, or blocked.",
 ];

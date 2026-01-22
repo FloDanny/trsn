@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About TRSN LLC | QA Systems Leadership",
+  description:
+    "Background and operating principles behind TRSN LLC. Governance-led QA systems for production risk.",
+};
+
 const experience = [
-  "Built and sold a live streaming company (wrestling → FloSports).",
+  "Supported production platforms in healthcare, media, and data migration.",
   "Designed QA automation frameworks across API, UI, and performance layers.",
   "Led QA strategy aligned to ISTQB and IEEE 29119 standards.",
-  "Operated as QA Lead, Director-level consultant, and founder.",
+  "Established QA leadership practices for teams shipping under pressure.",
   "Zero tolerance for fragile systems, fake metrics, or test theater.",
 ];
 
@@ -15,11 +23,12 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="text-3xl font-semibold text-zinc-900 dark:text-white md:text-4xl">
-            Danny Cartagena — QA Lead / SDET / Systems Builder.
+            TRSN LLC — QA systems and governance.
           </h1>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
-            I build systems that can ship under real load, real revenue, and real
-            failure conditions. QA is not a phase. QA is a system capability.
+            TRSN LLC builds systems that can ship under real load, real revenue,
+            and real failure conditions. QA is not a phase. QA is a system
+            capability.
           </p>
         </div>
       </section>

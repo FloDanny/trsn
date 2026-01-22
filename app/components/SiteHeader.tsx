@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/qaas", label: "QAAS™" },
+  { href: "/proof", label: "QAAS Proof" },
   { href: "/mass", label: "MASS Framework" },
   { href: "/testing-tooling", label: "Testing & Tooling" },
   { href: "/ai-governance", label: "AI Agents & Governance" },

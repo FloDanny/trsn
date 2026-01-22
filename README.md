@@ -42,6 +42,31 @@ npm run start   # run production server
 npm run lint    # eslint
 ```
 
+## Admin Console (Clerk + Convex)
+
+The admin console is private and gated by Clerk authentication plus an allowed
+admin email. Submissions are stored in Convex and accessed through a short-lived
+admin token signed with a shared secret.
+
+### Required environment variables
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+CLERK_SECRET_KEY=YOUR_SECRET_KEY
+ADMIN_EMAIL=admin@trsnllc.com
+CONVEX_ADMIN_SHARED_SECRET=YOUR_CONVEX_ADMIN_SHARED_SECRET
+NEXT_PUBLIC_CONVEX_URL=YOUR_CONVEX_URL
+CONVEX_URL=YOUR_CONVEX_URL
+CONVEX_DEPLOY_KEY=YOUR_CONVEX_DEPLOY_KEY
+```
+
+### Flow overview
+
+- Clerk handles authentication and redirects to `/admin`.
+- `/admin` checks the authenticated user's email against `ADMIN_EMAIL`.
+- Admin requests to Convex use a short-lived signed token validated by
+  `CONVEX_ADMIN_SHARED_SECRET`.
+
 ## Project Structure
 
 ```text
