@@ -13,7 +13,7 @@ type EngagementInsert = {
   lastReviewedAt?: number;
 };
 
-const { mutation, query } = convexServer as {
+const { mutation, query } = convexServer as unknown as {
   mutation: typeof convexServer.mutation;
   query: typeof convexServer.query;
 };
