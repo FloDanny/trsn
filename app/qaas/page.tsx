@@ -114,8 +114,8 @@ export default function QAASPage() {
           </h2>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             QAAS™ delivers a release signal that executives can trust: what was
-            verified, what was validated, and which risks remain. If it cannot be
-            tested reasonably, the design is wrong.
+            verified, what was validated, and which risks remain. If it cannot
+            be tested reasonably, the design is wrong.
           </p>
         </div>
       </section>

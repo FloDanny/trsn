@@ -19,7 +19,7 @@ const tooling = [
 
 const principles = [
   "Verify: Did we build it right?",
-  "Validate: Did we build the right thing?",
+  "Validate: Did we prove the right thing?",
   "Risk-based prioritization over coverage vanity.",
   "No silent failures. All errors are surfaced, logged, or blocked.",
 ];
@@ -33,7 +33,7 @@ export default function TestingToolingPage() {
             Testing & Tooling
           </p>
           <h1 className="text-3xl font-semibold text-zinc-900 dark:text-white md:text-4xl">
-            V²: Verify, then Validate.
+            V² trademark philosophy: Verify, then Validate.
           </h1>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             If a system cannot be tested reasonably, the design is wrong. The
