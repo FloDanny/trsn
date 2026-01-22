@@ -40,7 +40,15 @@ npm run dev     # start local dev server
 npm run build   # production build
 npm run start   # run production server
 npm run lint    # eslint
+npm run test:vitest      # vitest + coverage report
+npm run test:jest        # jest + html report + coverage
+npm run test:playwright  # playwright ui automation + html report
+npm run test:k6          # k6 smoke test + html report
 ```
+
+## Testing
+
+See `TESTING.md` for setup, reporting locations, and tool-specific notes.
 
 ## Project Structure
 
