@@ -31,7 +31,8 @@ const pages = [
   {
     path: "/ai-governance",
     heading: "Governance beats clever prompts.",
-    mustContain: "Agents are only useful when their behavior is bounded",
+    mustContain:
+      "AI systems only scale when agent behavior is bounded, testable, and accountable.",
   },
   {
     path: "/about",
