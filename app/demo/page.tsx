@@ -77,7 +77,7 @@ const reportGallery = [
 ];
 
 export default function DemoPage() {
-  const [activeReportId, setActiveReportId] = useState(null);
+  const [activeReportId, setActiveReportId] = useState<string | null>(null);
   const activeReport = useMemo(
     () => reportGallery.find((item) => item.id === activeReportId) || null,
     [activeReportId]
