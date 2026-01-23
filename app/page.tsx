@@ -63,7 +63,7 @@ export default function Home() {
               Start with a risk review
             </Link>
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
+              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-800 hover:shadow-[0_0_0_4px_rgba(24,24,27,0.12)] dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-white dark:hover:shadow-[0_0_0_4px_rgba(244,244,245,0.2)]"
               href="/qaas"
             >
               Read the QAAS™ model
@@ -139,7 +139,7 @@ export default function Home() {
               Explore the demo
             </Link>
             <a
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
+              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-800 hover:shadow-[0_0_0_4px_rgba(24,24,27,0.12)] dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-white dark:hover:shadow-[0_0_0_4px_rgba(244,244,245,0.2)]"
               href={repoUrl}
               rel="noreferrer"
               target="_blank"
