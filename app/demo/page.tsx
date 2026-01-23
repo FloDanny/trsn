@@ -204,6 +204,33 @@ export default function DemoPage() {
                 <div className="border-b border-zinc-200/70 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:bg-black dark:text-zinc-200">
                   {item.title}
                 </div>
+                {item.id === "k6-dashboard" && (
+                  <div className="border-b border-zinc-200/70 bg-zinc-50 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800 dark:bg-black dark:text-zinc-400">
+                    <p className="text-xs leading-5">
+                      Interactive HTML. Download the file to explore live metrics
+                      and filters.
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
+                      <a
+                        className="underline-offset-4 hover:underline"
+                        href={item.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        Open interactive dashboard
+                      </a>
+                      <a
+                        className="underline-offset-4 hover:underline"
+                        href={item.downloadHref}
+                        rel="noreferrer"
+                        target="_blank"
+                        download
+                      >
+                        Download HTML
+                      </a>
+                    </div>
+                  </div>
+                )}
                 <button
                   className="group w-full text-left"
                   onClick={() => setActiveReportId(item.id)}
@@ -218,7 +245,7 @@ export default function DemoPage() {
                     width={1200}
                   />
                 </button>
-                {item.note ? (
+                {item.note && item.id !== "k6-dashboard" ? (
                   <div className="border-t border-zinc-200/70 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
                     {item.href ? (
                       <div className="flex flex-wrap items-center gap-3">

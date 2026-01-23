@@ -48,6 +48,8 @@ npm run test:playwright  # playwright ui automation + html report
 npm run test:k6          # k6 smoke test + html report
 ```
 
+The repository also includes a `.husky/pre-commit` hook that runs `./scripts/pre-commit.sh` (which currently invokes `npm run lint`) before each commit.
+
 ## Testing
 
 See `TESTING.md` for setup, reporting locations, and tool-specific notes.

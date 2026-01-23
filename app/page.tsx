@@ -156,33 +156,6 @@ export default function Home() {
                 <h3 className="mt-2 text-lg font-semibold text-zinc-900 dark:text-white">
                   {item.title}
                 </h3>
-                {item.href.endsWith("/reports/k6/web-dashboard.html") && (
-                  <>
-                    <p className="mt-1 text-xs leading-5 text-zinc-500 dark:text-zinc-400">
-                      Interactive HTML. Download the file to explore live
-                      metrics and filters.
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-                      <a
-                        className="underline-offset-4 hover:underline"
-                        href={item.href}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Open interactive dashboard
-                      </a>
-                      <a
-                        className="underline-offset-4 hover:underline"
-                        href={item.href}
-                        rel="noreferrer"
-                        target="_blank"
-                        download
-                      >
-                        Download HTML
-                      </a>
-                    </div>
-                  </>
-                )}
                 <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
                   {item.description}
                 </p>
