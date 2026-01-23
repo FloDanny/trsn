@@ -1,48 +1,264 @@
 ---
-name: qa-test-tooling
-description: Configure and maintain QA test tooling (Vitest, Jest, Playwright, k6) in this Next.js repo, including configs, coverage, HTML reports, and documentation. Use when adding or repairing test suites, improving coverage, or documenting how to run tests and troubleshoot failures.
+name: qaas-quality-enforcement
+description: |
+  Design, enforce, and maintain QAAS™ quality enforcement using standards-aligned
+  testing practices (ISTQB + ISO/IEC/IEEE 29119). Use this skill whenever behavior,
+  governance, copy, or system rules change and must be protected by evidence.
+  This skill treats testing as a system capability, not a task.
 ---
 
-# Qa Test Tooling
+QAAS™ Quality Enforcement Skill
+Purpose
+This skill governs how quality is enforced in the repository.
 
-## Overview
+It is not limited to tooling setup.
+It exists to ensure that every behavioral change is traceable, testable, and auditable, consistent with:
 
-Use this skill to set up or refine the repo’s testing stack with repeatable scripts, clear coverage targets, and HTML reporting. Keep changes scoped to test tooling and documentation.
+ISTQB principles
 
-## Workflow
+ISO/IEC/IEEE 29119 software testing standards
 
-### 1. Confirm repo state
+QAAS™’s V² (Verify + Validate) philosophy
 
-- Run the branch checks required by AGENTS.md.
-- Avoid architectural changes; stick to test tooling and docs.
+Use this skill whenever:
 
-### 2. Add or update tooling
+Fixing a bug
 
-- Add dependencies for Vitest, Jest, Playwright, and k6 reporting.
-- Create configs in repo root (`vitest.config.ts`, `jest.config.ts`, `playwright.config.ts`).
-- Keep test folders under `tests/` and avoid touching app code unless required for coverage.
+Changing behavior
 
-### 3. Create teaching-focused tests
+Introducing or modifying governance
 
-- Provide at least one positive and one negative case per tool.
-- Use generous, explanatory comments in tests.
-- Keep coverage scope narrow and achievable (e.g., `lib/` utilities).
+Adjusting copy or policy with operational meaning
 
-### 4. Ensure HTML reporting
+Adding, updating, or repairing test suites
 
-- Vitest/Jest: HTML coverage reports + HTML test reports if applicable.
-- Playwright: HTML report via built-in reporter.
-- k6: JSON summary exported and converted to HTML.
+Standards Alignment (Non-Negotiable)
+All work performed under this skill must align with:
 
-### 5. Document execution
+ISTQB testing principles
 
-- Add `TESTING.md` with step-by-step commands and report locations.
-- Update `README.md` with concise run instructions.
+ISO/IEC/IEEE 29119, including:
 
-### 6. Capture troubleshooting
+Test processes
 
-- When a failure is resolved, append the fix to `references/troubleshooting.md`.
+Test documentation
 
-## References
+Test techniques
 
-Use `references/troubleshooting.md` to capture resolved failures and their fixes.
+Keyword-driven testing (Part 5, latest updates Dec 2024)
+
+Standards exist to enforce:
+
+Consistency
+
+Traceability
+
+Auditability
+
+Repeatability
+
+Certification is treated as an operating guardrail, not a credential signal.
+
+Core Enforcement Rules (Agent-Level)
+
+1. Tests Are Mandatory for Fixes
+   Any change that:
+
+Fixes a defect
+
+Alters behavior
+
+Enforces governance
+
+Changes policy, copy, or rules with operational impact
+
+MUST be accompanied by tests.
+
+At minimum:
+
+One positive test (expected behavior)
+
+One negative test (regression guard)
+
+A fix without a test is considered incomplete.
+
+2. V² (Verify + Validate) Is Required
+   Every test suite must demonstrate:
+
+Verification — the system behaves as intended
+
+Validation — the system fails safely when assumptions are violated
+
+Both must be explicit in test design and naming.
+
+3. Correct Tool Selection Is Mandatory
+   The agent must choose the most appropriate tool based on what is being enforced:
+
+Vitest
+
+Unit and component logic
+
+Fast feedback loops
+
+Coverage-focused enforcement
+
+Jest
+
+Deterministic or legacy-adjacent unit logic
+
+Integration-style validation where needed
+
+Playwright
+
+User-visible flows
+
+Regression, policy, and governance enforcement
+
+Copy and structural drift protection
+
+k6
+
+Performance and stability smoke checks
+
+Threshold-based enforcement
+
+Negative-path validation (intentional failure cases)
+
+Tool misuse is considered a design failure.
+
+Required Workflow
+Step 1: Confirm Repo State
+Follow branch and safety checks defined in AGENTS.md
+
+Do not introduce architectural changes unless explicitly authorized
+
+Assume the repo is public and adversarially inspected
+
+Step 2: Add or Update Tests
+Place tests under tests/ using existing suite names
+
+Reuse existing categories:
+
+unit
+
+component
+
+e2e
+
+regression
+
+performance-smoke
+
+Keep coverage scoped intentionally (e.g., lib/ utilities)
+
+Step 3: Enforce Evidence Output
+All test suites must produce evidence artifacts:
+
+Vitest / Jest
+
+HTML coverage
+
+HTML test reports (where applicable)
+
+Playwright
+
+HTML report with screenshots and traces
+
+k6
+
+JSON summary
+
+HTML report
+
+Web dashboard export
+
+Evidence is a first-class QAAS™ output, not optional metadata.
+
+Step 4: Run Tests After Fixes
+After any fix:
+
+All relevant test suites must be run
+
+Partial execution requires explicit justification
+
+Failing tests block the change
+
+If evidence is not regenerated, the fix is not trusted.
+
+Step 5: Pre-Commit Enforcement (Required)
+This skill assumes pre-commit enforcement is active.
+
+The agent must:
+
+Add or update pre-commit hooks when introducing new test requirements
+
+Ensure commits fail if:
+
+Required tests are missing
+
+Test suites fail
+
+Governance checks are bypassed
+
+Tooling choice (Husky, Lefthook, etc.) is flexible, but enforcement is mandatory.
+
+Step 6: Documentation Updates
+When behavior or enforcement changes:
+
+Update TESTING.md to reflect new expectations
+
+Update README.md with concise execution notes if needed
+
+Append resolved failures to:
+
+references/troubleshooting.md
+
+Documentation is part of governance.
+
+Design Constraints
+Do not introduce guarantees or compliance claims
+
+Do not expose secrets or internal-only logic
+
+Do not touch application architecture unless explicitly required
+
+Prefer clarity over cleverness
+
+Treat tests as operational contracts, not examples
+
+Success Criteria
+Work performed under this skill is considered complete when:
+
+Behavior is protected by tests
+
+Both positive and negative paths are enforced
+
+Evidence artifacts are generated
+
+Tests pass after the fix
+
+Documentation reflects reality
+
+QAAS™ does not measure success by test count.
+
+QAAS™ measures success by:
+
+Prevented regressions
+
+Traceable evidence
+
+Repeatable enforcement
+
+Operational confidence
+
+References
+AGENTS.md
+
+TESTING.md
+
+references/troubleshooting.md
+
+When to Use This Skill
+Use qaas-quality-enforcement whenever quality, behavior, governance, or operational confidence must be protected.
+
+This skill exists to ensure QAAS™ behaves like a quality operating system, not a test suite.

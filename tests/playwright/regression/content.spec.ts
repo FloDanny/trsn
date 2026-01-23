@@ -3,8 +3,9 @@ import { expect, test } from "@playwright/test";
 const pages = [
   {
     path: "/",
-    heading: "QA systems designed for production reality.",
-    mustContain: "QA is not a gate. QA is the operating model.",
+    heading:
+      "QAAS™ is a productized quality system that ships evidence-first operating confidence.",
+    mustContain: "Live quality evidence is the product output.",
   },
   {
     path: "/qaas",

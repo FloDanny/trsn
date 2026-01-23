@@ -7,15 +7,15 @@ test("homepage hero and primary CTAs are visible (positive case)", async ({
 
   await expect(
     page.getByRole("heading", {
-      name: "QA systems designed for production reality.",
+      name: "QAAS™ is a productized quality system that ships evidence-first operating confidence.",
     })
   ).toBeVisible();
 
   await expect(
-    page.getByRole("link", { name: "Start with a risk review" })
+    page.getByRole("link", { name: "Qualify for a risk review" })
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "Read the QAAS™ model" })
+    page.getByRole("link", { name: "Read the QAAS™ product guide" })
   ).toBeVisible();
 });
 
