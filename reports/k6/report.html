@@ -9,6 +9,8 @@
       main { padding: 24px 32px; }
       .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
       .card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 10px 20px rgba(9, 9, 11, 0.08); }
+      .status-pass { color: #15803d; font-weight: 600; }
+      .status-fail { color: #b91c1c; font-weight: 600; }
       h1 { margin: 0; font-size: 24px; }
       h2 { margin: 0 0 12px; font-size: 16px; color: #3f3f46; }
       .value { font-size: 20px; font-weight: 600; }
@@ -27,42 +29,85 @@
       <section class="grid">
         <div class="card">
           <h2>Total Requests</h2>
-          <div class="value">0</div>
+          <div class="value">58</div>
           <div class="meta">Requests executed</div>
         </div>
         <div class="card">
           <h2>Failure Rate</h2>
-          <div class="value">0.00%</div>
+          <div class="value">50.00%</div>
           <div class="meta">HTTP request failures</div>
         </div>
         <div class="card">
           <h2>Avg Duration</h2>
-          <div class="value">0.00 ms</div>
+          <div class="value">32.75 ms</div>
           <div class="meta">Mean response time</div>
         </div>
         <div class="card">
           <h2>Checks Passed</h2>
-          <div class="value">0.00%</div>
-          <div class="meta">0 pass / 0 fail</div>
+          <div class="value">100.00%</div>
+          <div class="meta">58 pass / 0 fail</div>
+        </div>
+        <div class="card">
+          <h2>Thresholds Passed</h2>
+          <div class="value">3/3</div>
+          <div class="meta">0 failed</div>
         </div>
       </section>
       <section class="card" style="margin-top: 16px;">
-        <h2>Checks Breakdown</h2>
+        <h2>Check Results</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>Passes</th>
+              <th>Fails</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>home returns 200</td>
+              <td>29</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>missing route returns 404</td>
+              <td>29</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="card" style="margin-top: 16px;">
+        <h2>Threshold Results</h2>
         <table>
           <thead>
             <tr>
               <th>Metric</th>
-              <th>Value</th>
+              <th>Threshold</th>
+              <th>Actual</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
+            
             <tr>
-              <td>Checks Passed</td>
-              <td>0</td>
+              <td>http_req_failed</td>
+              <td>rate<0.6</td>
+              <td>0.5000</td>
+              <td class="status-pass">PASS</td>
             </tr>
             <tr>
-              <td>Checks Failed</td>
-              <td>0</td>
+              <td>checks</td>
+              <td>rate==1.0</td>
+              <td>1.0000</td>
+              <td class="status-pass">PASS</td>
+            </tr>
+            <tr>
+              <td>http_req_duration</td>
+              <td>p(95)<500</td>
+              <td>43.6889</td>
+              <td class="status-pass">PASS</td>
             </tr>
           </tbody>
         </table>
