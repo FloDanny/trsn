@@ -2,6 +2,10 @@
 
 This repo treats testing as a system capability. Each suite ships with HTML reporting and at least one positive and one negative check to demonstrate verification and validation.
 
+## ISTQB mandate
+
+Every page or governance-facing change must follow the ISTQB testing approach: capture the expected behavior in an explicit positive case and guard against regressions with a negative case. Document the claim being verified so QAAS outputs stay traceable and testable.
+
 ## Tooling Overview
 
 - Vitest: unit + component tests with coverage HTML.

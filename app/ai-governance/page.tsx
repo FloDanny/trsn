@@ -2,28 +2,29 @@ const governanceElements = [
   {
     title: "AGENTS.md contracts",
     detail:
-      "Explicit rules that define scope, constraints, and decision rights for every agent.",
+      "Explicit contracts define scope, constraints, and decision rights for every agent. Behavior is governed by rules, not prompts.",
   },
   {
     title: "Codex-native skills",
     detail:
-      "Skills are modular, reusable behaviors. They are invoked intentionally and reviewed like code.",
+      "Skills are modular, reviewable behaviors invoked intentionally. They are versioned, audited, and treated as system capabilities.",
   },
   {
     title: "Reproducible outputs",
     detail:
-      "Every output can be traced to inputs, constraints, and validation steps.",
+      "Every agent output is traceable to inputs, constraints, and execution context. Nothing is opaque or one-off.",
   },
   {
     title: "Human ownership",
     detail:
-      "Agents assist delivery. Humans own release authority and accountability.",
+      "Agents assist execution. Humans retain release authority, accountability, and final decision-making responsibility.",
   },
 ];
 
 export default function AIGovernancePage() {
   return (
     <div className="bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
+      {/* Hero */}
       <section className="border-b border-zinc-200/70 bg-zinc-50 py-16 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6">
           <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
@@ -33,12 +34,13 @@ export default function AIGovernancePage() {
             Governance beats clever prompts.
           </h1>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
-            Agents are only useful when their behavior is bounded, testable, and
-            accountable. Prompts are inputs. Systems are the architecture.
+            AI systems only scale when agent behavior is bounded, testable, and
+            accountable. Prompts are inputs. Governance is the architecture.
           </p>
         </div>
       </section>
 
+      {/* Governance pillars */}
       <section className="py-14">
         <div className="mx-auto grid w-full max-w-5xl gap-6 px-6 md:grid-cols-2">
           {governanceElements.map((element) => (
@@ -57,14 +59,20 @@ export default function AIGovernancePage() {
         </div>
       </section>
 
+      {/* Boundary clarification */}
       <section className="border-t border-zinc-200/70 bg-zinc-50 py-14 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-6">
           <h2 className="text-2xl font-semibold text-zinc-900 dark:text-white">
-            QAAS™ uses governance as a quality gate.
+            Governance defines behavior. Quality systems establish trust.
           </h2>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
-            Every agent output is treated as testable output. Assumptions are
-            surfaced. Constraints are explicit. Validation steps are documented.
+            MASS governs how AI systems behave — defining constraints,
+            ownership, and traceability for agent-driven execution.
+          </p>
+          <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
+            Downstream quality systems consume these governed outputs as
+            testable evidence, applying verification and validation before any
+            release or decision is trusted.
           </p>
         </div>
       </section>
