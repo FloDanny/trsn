@@ -213,6 +213,7 @@ export default function DemoPage() {
                     className="h-auto w-full transition duration-200 ease-out group-hover:scale-[1.01]"
                     height={675}
                     src={item.src}
+                    unoptimized
                     width={1200}
                   />
                 </button>
@@ -264,6 +265,7 @@ export default function DemoPage() {
                 className="h-auto w-full"
                 height={900}
                 src={activeReport.src}
+                unoptimized
                 width={1600}
               />
               {activeReport.note ? (
