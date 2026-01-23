@@ -72,7 +72,8 @@ const reportGallery = [
     title: "k6 web dashboard",
     src: "/report-screenshots/k6-dashboard.png",
     note: "Interactive HTML. Download the file to explore live metrics and filters.",
-    href: `${repoUrl}/blob/${repoBranch}/reports/k6/web-dashboard.html`,
+    href: "/reports/k6/web-dashboard.html",
+    downloadHref: "/reports/k6/web-dashboard.html",
   },
 ];
 
@@ -108,7 +109,7 @@ export default function DemoPage() {
               Open the public repo
             </a>
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
+              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-800 hover:shadow-[0_0_0_4px_rgba(24,24,27,0.12)] dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-white dark:hover:shadow-[0_0_0_4px_rgba(244,244,245,0.2)]"
               href="/testing-tooling"
             >
               View testing approach
@@ -219,17 +220,28 @@ export default function DemoPage() {
                 </button>
                 {item.note ? (
                   <div className="border-t border-zinc-200/70 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-                    {item.note}
                     {item.href ? (
-                      <a
-                        className="ml-2 font-medium text-zinc-700 underline-offset-4 hover:underline dark:text-zinc-200"
-                        href={item.href}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Download HTML
-                      </a>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a
+                          className="font-medium text-zinc-700 underline-offset-4 hover:underline dark:text-zinc-200"
+                          href={item.href}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          Open interactive dashboard
+                        </a>
+                        {item.downloadHref ? (
+                          <a
+                            className="font-medium text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300"
+                            download
+                            href={item.downloadHref}
+                          >
+                            Download HTML
+                          </a>
+                        ) : null}
+                      </div>
                     ) : null}
+                    {item.note}
                   </div>
                 ) : null}
               </div>
@@ -270,17 +282,28 @@ export default function DemoPage() {
               />
               {activeReport.note ? (
                 <div className="mt-4 text-sm text-zinc-600 dark:text-zinc-300">
-                  {activeReport.note}
                   {activeReport.href ? (
-                    <a
-                      className="ml-2 font-medium text-zinc-900 underline-offset-4 hover:underline dark:text-white"
-                      href={activeReport.href}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Download the interactive file
-                    </a>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <a
+                        className="font-medium text-zinc-900 underline-offset-4 hover:underline dark:text-white"
+                        href={activeReport.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        Open interactive dashboard
+                      </a>
+                      {activeReport.downloadHref ? (
+                        <a
+                          className="font-medium text-zinc-700 underline-offset-4 hover:underline dark:text-zinc-200"
+                          download
+                          href={activeReport.downloadHref}
+                        >
+                          Download HTML
+                        </a>
+                      ) : null}
+                    </div>
                   ) : null}
+                  {activeReport.note}
                 </div>
               ) : null}
             </div>
