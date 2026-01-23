@@ -155,7 +155,7 @@ export default function DemoPage() {
       <section className="border-t border-zinc-200/70 bg-zinc-50 py-14 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6">
           <h2 className="text-2xl font-semibold text-zinc-900 dark:text-white">
-            How a billion-dollar company evaluates this demo.
+            Evaluation checklist for this demo.
           </h2>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             Enterprise leaders need to see evidence, not promises. Use this
