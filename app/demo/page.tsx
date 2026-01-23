@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 
 const repoUrl = "https://github.com/FloDanny/trsn";
 const repoBranch = "main";
@@ -45,28 +48,41 @@ const inspectionChecklist = [
 
 const reportGallery = [
   {
+    id: "vitest",
     title: "Vitest coverage summary",
     src: "/report-screenshots/vitest.png",
   },
   {
+    id: "jest",
     title: "Jest HTML report",
     src: "/report-screenshots/jest.png",
   },
   {
+    id: "playwright",
     title: "Playwright report",
     src: "/report-screenshots/playwright.png",
   },
   {
+    id: "k6",
     title: "k6 performance report",
     src: "/report-screenshots/k6.png",
   },
   {
+    id: "k6-dashboard",
     title: "k6 web dashboard",
     src: "/report-screenshots/k6-dashboard.png",
+    note: "Interactive HTML. Download the file to explore live metrics and filters.",
+    href: `${repoUrl}/blob/${repoBranch}/reports/k6/web-dashboard.html`,
   },
 ];
 
 export default function DemoPage() {
+  const [activeReportId, setActiveReportId] = useState<string | null>(null);
+  const activeReport = useMemo(
+    () => reportGallery.find((item) => item.id === activeReportId) || null,
+    [activeReportId]
+  );
+
   return (
     <div className="bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
       <section className="border-b border-zinc-200/70 bg-zinc-50 py-16 dark:border-zinc-800 dark:bg-zinc-950">
@@ -139,7 +155,7 @@ export default function DemoPage() {
       <section className="border-t border-zinc-200/70 bg-zinc-50 py-14 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6">
           <h2 className="text-2xl font-semibold text-zinc-900 dark:text-white">
-            How a billion-dollar company evaluates this demo.
+            Evaluation checklist for this demo.
           </h2>
           <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
             Enterprise leaders need to see evidence, not promises. Use this
@@ -187,20 +203,88 @@ export default function DemoPage() {
                 <div className="border-b border-zinc-200/70 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:bg-black dark:text-zinc-200">
                   {item.title}
                 </div>
-                <a href={item.src} rel="noreferrer" target="_blank">
+                <button
+                  className="group w-full text-left"
+                  onClick={() => setActiveReportId(item.id)}
+                  type="button"
+                >
                   <Image
                     alt={item.title}
-                    className="h-auto w-full"
+                    className="h-auto w-full transition duration-200 ease-out group-hover:scale-[1.01]"
                     height={675}
                     src={item.src}
                     width={1200}
                   />
-                </a>
+                </button>
+                {item.note ? (
+                  <div className="border-t border-zinc-200/70 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+                    {item.note}
+                    {item.href ? (
+                      <a
+                        className="ml-2 font-medium text-zinc-700 underline-offset-4 hover:underline dark:text-zinc-200"
+                        href={item.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        Download HTML
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {activeReport ? (
+        <div
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm"
+          role="dialog"
+          onClick={() => setActiveReportId(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-zinc-950"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-zinc-200/70 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:text-zinc-200">
+              <span>{activeReport.title}</span>
+              <button
+                className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-300 dark:hover:border-zinc-600"
+                onClick={() => setActiveReportId(null)}
+                type="button"
+              >
+                Close
+              </button>
+            </div>
+            <div className="max-h-[75vh] overflow-y-auto bg-zinc-50 p-4 dark:bg-black">
+              <Image
+                alt={activeReport.title}
+                className="h-auto w-full"
+                height={900}
+                src={activeReport.src}
+                width={1600}
+              />
+              {activeReport.note ? (
+                <div className="mt-4 text-sm text-zinc-600 dark:text-zinc-300">
+                  {activeReport.note}
+                  {activeReport.href ? (
+                    <a
+                      className="ml-2 font-medium text-zinc-900 underline-offset-4 hover:underline dark:text-white"
+                      href={activeReport.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Download the interactive file
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

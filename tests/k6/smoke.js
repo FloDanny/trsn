@@ -3,7 +3,7 @@ import { check, sleep } from "k6";
 
 export const options = {
   vus: 1,
-  duration: "30s",
+  duration: "60s",
   thresholds: {
     // Assertions: treat checks as test expectations.
     checks: ["rate==1.0"],

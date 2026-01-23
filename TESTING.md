@@ -100,7 +100,7 @@ npm run test:k6
 - Coverage is scoped to `lib/` utilities to keep thresholds meaningful.
 - k6 intentionally requests a 404 route for a negative check, so `http_req_failed` will show non-zero even when the checks pass.
 - k6 thresholds live in `tests/k6/smoke.js` to keep performance expectations explicit.
-- The web dashboard export is generated when `npm run test:k6` runs; the test duration is set to 30s to ensure enough data for the export.
+- The web dashboard export is generated when `npm run test:k6` runs; the test duration is set to 60s to ensure enough data for the export.
 - k6 uses `BASE_URL` if you want to target a non-local instance:
 
 ```bash
