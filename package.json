@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prepare": "git config core.hooksPath .githooks",
     "lint": "eslint",
     "format": "prettier --write .",
     "test:vitest": "mkdir -p reports/vitest && vitest run --coverage && node tests/vitest/report.cjs",

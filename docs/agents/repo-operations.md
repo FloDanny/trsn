@@ -30,6 +30,15 @@ If Codex believes it is on a different branch than Git reports:
 - `npm run build`
 - `npm run start`
 - `npm run lint`
+- `npm run format`
+- `npm run test:vitest`
+- `npm run test:k6`
+- `npm run test:playwright`
+- `npm run test:jest`
+
+## Git Hooks
+- `npm install` configures `core.hooksPath` to use `.githooks/`.
+- `.githooks/pre-commit` runs lint, format, and test scripts to gate commits.
 
 ## Coding Style
 - TypeScript + React with the App Router; keep components in `app/`.
