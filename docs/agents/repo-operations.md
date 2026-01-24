@@ -37,8 +37,8 @@ If Codex believes it is on a different branch than Git reports:
 - `npm run test:jest`
 
 ## Git Hooks
-- `npm install` configures `core.hooksPath` to use `.githooks/`.
-- `.githooks/pre-commit` runs lint, format, and test scripts to gate commits.
+- `.husky/pre-commit` runs `./scripts/pre-commit.sh` to gate commits.
+- `./scripts/pre-commit.sh` runs lint, format, and test scripts before each commit.
 
 ## Coding Style
 - TypeScript + React with the App Router; keep components in `app/`.

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-npm run lint
-npm run format
-npm run test:vitest
-npm run test:k6
-npm run test:playwright
-npm run test:jest
