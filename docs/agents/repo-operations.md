@@ -19,6 +19,16 @@ If Codex believes it is on a different branch than Git reports:
 3. `git pull origin staging`
 4. Re-check: `git branch`, `git status`
 
+### Branch Visibility in Containers
+- If only a single local branch (e.g., `work`) is visible, verify remotes and refs before assuming other branches exist.
+- Run:
+  - `git branch -a`
+  - `git remote -v`
+  - `git show-ref --heads`
+- If a remote is configured, list remote branches with:
+  - `git ls-remote --heads origin`
+- If no remote branches are available, report the limitation and avoid inventing branch names.
+
 ## Project Structure
 - `app/` holds App Router pages and layouts.
 - `app/globals.css` contains global styles and Tailwind layers.
