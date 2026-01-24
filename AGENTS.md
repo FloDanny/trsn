@@ -6,6 +6,9 @@ This repository powers TRSNLLC.com, the public authority site for TRSN LLC.
 - Systems beat prompts. Governance beats vibes. Quality is not optional.
 - All agent-generated changes must be explainable, reviewable via Git diff, and have a clear reason.
 
+## Skills
+- Identify relevant skills in `/skills` before acting (see [Skills System](docs/agents/skills-system.md)).
+
 ## Non-Goals
 This repo is not a SaaS dashboard, marketing automation engine, framework playground, or AI gimmick showcase.
 
