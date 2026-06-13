@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+import { createPageMetadata } from "@/lib/seo";
+import ContactForm from "./ContactForm";
+
+export const metadata: Metadata = createPageMetadata("/contact");
+
 const intakeItems = [
   "Current system architecture and release cadence.",
   "Highest-risk workflows and known failure modes.",
@@ -45,4 +52,3 @@ export default function ContactPage() {
     </div>
   );
 }
-import ContactForm from "./ContactForm";
