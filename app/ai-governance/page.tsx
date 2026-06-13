@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/ai-governance");
+
 const governanceElements = [
   {
     title: "AGENTS.md contracts",
