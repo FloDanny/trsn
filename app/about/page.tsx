@@ -23,6 +23,7 @@ const clientList = [
   "Upper Canyon Lodging Company",
   "FloSports.tv",
   "Concentra Healthcare",
+  "Cryoport Systems",
   "USA Wrestling",
   "Brute Athletic Apparel",
 ];
