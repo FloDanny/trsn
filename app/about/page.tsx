@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/about");
+
 const companyFocus = [
   "QA systems engineered for production pressure, not lab conditions.",
   "Automation strategies across API, UI, and performance layers.",
@@ -17,6 +23,7 @@ const clientList = [
   "Upper Canyon Lodging Company",
   "FloSports.tv",
   "Concentra Healthcare",
+  "Cryoport Systems",
   "USA Wrestling",
   "Brute Athletic Apparel",
 ];
